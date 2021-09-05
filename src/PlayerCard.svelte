@@ -6,8 +6,8 @@
 </script>
 
 <div class="playerCard" in:fly="{{ y: 200, duration: 1500, delay: i*100 }}" out:fade>
-    <span class="playerName">{player.fields.Tags}</span>
-    <span class="playerEvent">{player.fields.Event}</span>
+    <span class="playerName">{player.fields.tags}</span>
+    <span class="playerEvent">{player.fields.event}</span>
 </div>
 
 <style>

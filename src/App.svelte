@@ -21,10 +21,11 @@
 	onMount(async () => {
 		const res = await fetch(`https://fessehaye.api.stdlib.com/gsheets-absmash@dev/`);
 		players = await res.json();
+		console.log(players);
 		loading = false;
 	});
 
-	$: playersFiltered = players.filter(player => player.fields.Tags.toLowerCase().includes(name.toLowerCase()));
+	$: playersFiltered = players.filter(player => player.fields.tags.toLowerCase().includes(name.toLowerCase()));
 </script>
 
 <main>
