@@ -1,10 +1,11 @@
 <script>
 	import { fade,fly } from 'svelte/transition';
 
+    export let i;
     export let player;
 </script>
 
-<div class="playerCard" in:fly="{{ y: 200, duration: 1500 }}" out:fade>
+<div class="playerCard" in:fly="{{ y: 200, duration: 1500, delay: i*200 }}" out:fade>
     <span class="playerName">{player.fields.Tags}</span>
     <span class="playerEvent">{player.fields.Event}</span>
 </div>

@@ -33,8 +33,8 @@
 		<Loader />
 	{:else}
 		<div class="playerList">
-			{#each playersFiltered as player (player.index)}
-				<PlayerCard player={player}  />
+			{#each playersFiltered as player,i (player.index)}
+				<PlayerCard player={player} i={i} />
 			{/each}
 		</div>
 	{/if}
