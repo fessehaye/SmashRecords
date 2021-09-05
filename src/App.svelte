@@ -1,5 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+
 	import PlayerCard from './PlayerCard.svelte';
 	import Loader from './Loader.svelte';
 
@@ -13,7 +15,7 @@
 		clearTimeout(timer);
 		timer = setTimeout(() => {
 			name = v;
-		}, 750);
+		}, 500);
 	}
 
 	onMount(async () => {
@@ -32,11 +34,15 @@
 	{#if loading}
 		<Loader />
 	{:else}
-		<div class="playerList">
-			{#each playersFiltered as player,i (player.index)}
-				<PlayerCard player={player} i={i} />
-			{/each}
-		</div>
+		{#if playersFiltered.length > 0}
+			<div class="playerList">
+				{#each playersFiltered as player,i (player.index)}
+					<PlayerCard player={player} i={i} />
+				{/each}
+			</div>
+		{:else}
+			<p transition:fade="{{ duration: 1000 }}">Player can not be found</p>
+		{/if}
 	{/if}
 	
 	
@@ -80,5 +86,14 @@
         }
 
     }
+
+	p {
+		color:#fff;
+		width: 100%;
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 24px;
+	}
 
 </style>
