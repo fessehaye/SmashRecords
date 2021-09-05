@@ -1,0 +1,44 @@
+<script>
+	import { fade,fly } from 'svelte/transition';
+
+    export let player;
+</script>
+
+<div class="playerCard" in:fly out:fade>
+    <span class="playerName">{player.fields.Tags}</span>
+    <span class="playerEvent">{player.fields.Event}</span>
+</div>
+
+<style>
+    .playerCard {
+        background: #fff;
+        display: flex;
+        align-items: center;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        font-size: 18px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+
+    @media only screen and (max-width: 500px) {
+        .playerEvent,.playerName,.playerCard {
+            display: block;
+        }
+
+        .playerName {
+            margin-bottom: 10px;
+        }
+    }
+
+    .playerName {
+        font-weight: 700;
+        margin-right: auto;
+        color:#374151;
+    }
+
+    .playerEvent {
+        color:#6B7280;
+        font-size: 16px;
+    }
+</style>
