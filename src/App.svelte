@@ -36,8 +36,6 @@
 <style>
 	main {
 		padding: 40px 10px;
-		max-width: 620px;
-		margin: auto;
 	}
 
 	input {
@@ -45,10 +43,13 @@
 		border: none;
 		border-bottom: 2px solid #fff;
 		width: 100%;
+		margin: 0 auto;
 		margin-bottom: 50px;
 		color: #fff;
 		font-family: "Roboto", sans-serif;
 		font-size: 18px;
+		max-width: 900px;
+		display: block;
 	}
 
 	:focus-visible {
@@ -60,5 +61,15 @@
 		opacity: 1; /* Firefox */
 		font-family: "Roboto", sans-serif;
 	}
+
+	@media only screen and (min-width: 620px) {
+        .playerList {
+            display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+			justify-content: center;
+        }
+
+    }
 
 </style>
