@@ -7,6 +7,15 @@
 	let name = '';
 	let loading = true;
 
+	let timer;
+
+	const debounce = v => {
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			name = v;
+		}, 750);
+	}
+
 	onMount(async () => {
 		const res = await fetch(`https://fessehaye.api.stdlib.com/gsheets-absmash@dev/`);
 		players = await res.json();
@@ -18,7 +27,7 @@
 
 <main>
 	
-	<input bind:value={name} placeholder="Enter GamerTag">
+	<input on:keyup={({ target: { value } }) => debounce(value)} placeholder="Enter GamerTag">
 
 	{#if loading}
 		<Loader />
