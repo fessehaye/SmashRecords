@@ -29,7 +29,11 @@
 </script>
 
 <main>
-	
+	<p class="count">
+		{#if !loading}
+			{playersFiltered.length} Players
+		{/if}
+	</p>
 	<input on:keyup={({ target: { value } }) => debounce(value)} placeholder="Enter GamerTag">
 
 	{#if loading}
@@ -42,7 +46,7 @@
 				{/each}
 			</div>
 		{:else}
-			<p transition:fade="{{ duration: 1000 }}">Player can not be found</p>
+			<p class="empty" transition:fade="{{ duration: 1000 }}">Player can not be found</p>
 		{/if}
 	{/if}
 	
@@ -52,6 +56,15 @@
 <style>
 	main {
 		padding: 40px 10px;
+	}
+
+	.count {
+		color: #fff;
+		font-family: "Roboto", sans-serif;
+		font-size: 18px;
+		max-width: 900px;
+		margin: 0 auto;
+		text-align: right;
 	}
 
 	input {
@@ -88,7 +101,7 @@
 
     }
 
-	p {
+	.empty {
 		color:#fff;
 		width: 100%;
 		text-align: center;

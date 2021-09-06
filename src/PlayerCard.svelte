@@ -5,7 +5,7 @@
     export let player;
 </script>
 
-<div class="playerCard" in:fly="{{ y: 200, duration: 1500, delay: i*50 }}" out:fade>
+<div class="playerCard" in:fly="{{ y: 200, duration: 700, delay: i*100 }}" out:fade>
     <span class="playerName">{player.fields.tags}</span>
     <span class="playerEvent">{player.fields.event}</span>
 </div>
